@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<body>
+    <div class="prediction">
+        <h1>Airbnb Destinations Predictions</h1>
+        <h2>Click on the 'Predict' button below, then after a couple of minutes a message should appear on the screen, showing the operation was completed. </h2>
+        <h2>Feel free to access the Streamlit app <a href="https://airbnb.streamlit.app/">here</a>. </h2>
+        <form action="{{ url_for('predict')}}"method="post">
+        	<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
