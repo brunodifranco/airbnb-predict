@@ -2,6 +2,7 @@ import os
 import pickle
 from airbnb.airbnb_etl import Airbnb
 from flask import Flask, render_template, Response
+from waitress import serve
 
 # App
 app = Flask(__name__)
@@ -51,4 +52,4 @@ def predict():
 
 if __name__ == '__main__':
     port = os.environ.get('PORT', 5000)
-    app.run(host='0.0.0.0', port=port)
+    serve(app, host="0.0.0.0", port=port
