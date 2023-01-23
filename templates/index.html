@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html >
-<!--From https://codepen.io/frytyler/pen/EGdtg-->
 
-<body>
-    <div class="prediction">
-        <h1>Airbnb Destinations Predictions</h1>
-        <h2>Click on the 'Predict' button below, then after a couple of minutes a message should appear on the screen, showing the operation was completed. </h2>
-        <h2>Feel free to access the Streamlit app <a href="https://airbnb.streamlit.app/">here</a>. </h2>
-        <form action="{{ url_for('predict')}}"method="post">
-        	<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+<style>
+.left ul {
+  line-height: 2em;
+  float: left;
+}
+    </style>
+
+<body style="background-color:#d6c1c109">
+    <div class="prediction" style="color:rgb(255, 255, 255)">
+        <h1 align="center" style = font-size:45px>Airbnb Destinations Predictions</h1>
+        <h2 style = font-size:30px>This is part of the <a href="https://github.com/brunodifranco/project-airbnb-classification/">Airbnb Classification Project</a>.</h2>
+
+        <h2 style = font-size:25px> What does it do?</h2>
+        <div class="left">
+            
+            <ul style = font-size:20px>    
+                <li> Loads Airbnb sessions and users data from a PostgreSQL database</li>
+                
+                <li> Transforms the data and creates predictions by using a Machine Learning model</li>
+                <i> Obs: The model predicts the five most likely countries for an Airbnb user to book their next destination.</i>
+
+                <li> Loads back the new data (with predictions) into the PostgreSQL database, so it can be recovered by the Streamlit app.</li>
+                <i> Feel free to access the Streamlit app <a href="https://airbnb.streamlit.app/">here</a>.</i>
+            </ul>  
+        </div class="left">    
+            
+        <h2 style = font-size:25px> Why is it useful?</h2>   
+        <ul style = font-size:20px>    
+            <li> If <b>new</b> raw data gets added in the Database it's quite easy to get new predictions.</li>
+        </ul>         
+
+        <h2 style = font-size:25px> How to use it?</h2>
+        <ul style = font-size:20px>    
+            <li> Click on the 'Predict' button below, then after a couple of minutes a message should appear on the screen, showing the operation was completed.</li>
+        </ul> 
+
+        <form align="center" action="{{ url_for('predict')}}"method="post">
+        	<button style = font-size:45px type="submit" class="btn btn-primary btn-block btn-large"> <b>Predict</b></button>
         </form>
     </div>
 </body>
