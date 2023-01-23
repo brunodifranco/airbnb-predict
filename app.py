@@ -1,6 +1,5 @@
 import os
 import pickle
-from dotenv import load_dotenv
 from airbnb.airbnb_etl import Airbnb
 from flask import Flask, render_template, Response
 
@@ -20,13 +19,12 @@ def predict():
     # Instantiate Airbnb class
     pipeline = Airbnb()
 
-    # Loading credentials
-    load_dotenv()
-    USER = os.getenv('USER')
-    PASSWORD = os.getenv('PASSWORD')
-    HOST = os.getenv('HOST')
-    PORT = os.getenv('PORT')
-    DATABASE = os.getenv('DATABASE')
+    # Loading credentials  
+    USER = os.environ.get('USER')
+    PASSWORD = os.environ.get('PASSWORD')
+    HOST = os.environ.get('HOST')
+    PORT = os.environ.get('PORT')
+    DATABASE = os.environ.get('DATABASE')
 
     # Connect to Database
     conn_url = f'postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}'
